@@ -66,6 +66,17 @@ public class GoogleTest {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.z7BZJb.XSNERd")));
     }
+    @Test
+    public void test3() {
+        driver.get("http://google.com");
+        driver.findElement(By.cssSelector("input.gLFyf.gsfi")).sendKeys("Калькулятор", Keys.ENTER);
+        WebElement elementa = driver.findElement(By.xpath(".//div[text()='sin']"));
+        elementa.click();
+        WebElement elementb = driver.findElement(By.xpath(".//div[text()='=']"));
+        elementb.click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.z7BZJb.XSNERd")));
+    }
     @AfterAll
     public static void teardown() {
         driver.quit();
