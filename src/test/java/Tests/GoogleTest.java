@@ -51,7 +51,21 @@ public class GoogleTest {
 
 
     }
-
+    @Test
+    public void test2() {
+        driver.get("http://google.com");
+        driver.findElement(By.cssSelector("input.gLFyf.gsfi")).sendKeys("Калькулятор", Keys.ENTER);
+        WebElement elementa = driver.findElement(By.xpath(".//div[text()='6']"));
+        elementa.click();
+        WebElement elementb = driver.findElement(By.xpath(".//div[text()='÷']"));
+        elementb.click();
+        WebElement elementc = driver.findElement(By.xpath(".//div[text()='0']"));
+        elementc.click();
+        WebElement elementd = driver.findElement(By.xpath(".//div[text()='=']"));
+        elementd.click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.z7BZJb.XSNERd")));
+    }
     @AfterAll
     public static void teardown() {
         driver.quit();
